@@ -9,7 +9,7 @@ class Card implements Serializable{
     String cardQuestion;
     String cardAnswer;
 
-    public Card(String newQuestion, String newAnswer) {
+     Card(String newQuestion, String newAnswer) {
         cardQuestion = newQuestion;
         cardAnswer = newAnswer;
     }
@@ -20,38 +20,35 @@ class Card implements Serializable{
         return "Q: " + this.getCardQuestion() + "\n" + "A: " + this.getCardAnswer();
     }
 
-    public void setCardQuestion(String newQuestion) {
+    void setCardQuestion(String newQuestion) {
         cardQuestion = newQuestion;
     }
 
-    public String getCardQuestion() {
+    String getCardQuestion() {
         return cardQuestion;
     }
 
-    public void setCardAnswer(String newAnswer) {
+    void setCardAnswer(String newAnswer) {
         cardAnswer = newAnswer;
     }
 
-    public String getCardAnswer() {
+    String getCardAnswer() {
         return cardAnswer;
     }
 
 }
 
 public class CardSet implements Serializable {
-    int numOfCards; //number of cards in the set
-    ArrayList<Card> cards; //ArrayList containing card objects
-    String cardSetName; //name of the CardSet
+    private ArrayList<Card> cards; //ArrayList containing card objects
+    private String cardSetName; //name of the CardSet
 
-    public CardSet() {
+    private CardSet() {
         cardSetName = "";
-        numOfCards = 0;
         cards = new ArrayList<Card>();
     }
 
-    public CardSet(String newCardSetName) {
+    private CardSet(String newCardSetName) {
         cardSetName = newCardSetName;
-        numOfCards = 0;
         cards = new ArrayList<Card>();
     }
 
@@ -61,31 +58,25 @@ public class CardSet implements Serializable {
         return this.getCardSetName();
     }
 
-    public int getNumOfCards() {
-        return numOfCards;
-    }
 
-    public void setCardSetName(String newCardSetName) {
+    private void setCardSetName(String newCardSetName) {
         cardSetName = newCardSetName;
     }
 
-    public String getCardSetName() {
+    private String getCardSetName() {
         return  cardSetName;
     }
 
-    public void setNumOfCards(int numOfCards) {
-        this.numOfCards = numOfCards;
-    }
 
-    public void setCards(ArrayList<Card> cards) {
+    private void setCards(ArrayList<Card> cards) {
         this.cards = cards;
     }
 
-    public ArrayList<Card> getCards() {
+    private ArrayList<Card> getCards() {
         return cards;
     }
 
-    public void addCard(String newQuestion, String newAnswer) {
+    private void addCard(String newQuestion, String newAnswer) {
         Card newCard = new Card(newQuestion, newAnswer);
         cards.add(newCard);
     }
