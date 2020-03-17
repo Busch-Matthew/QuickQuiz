@@ -39,15 +39,15 @@ class Card implements Serializable{
 }
 
 public class CardSet implements Serializable {
-    private ArrayList<Card> cards; //ArrayList containing card objects
-    private String cardSetName; //name of the CardSet
+    ArrayList<Card> cards; //ArrayList containing card objects
+    String cardSetName; //name of the CardSet
 
-    private CardSet() {
+    public CardSet() {
         cardSetName = "";
         cards = new ArrayList<Card>();
     }
 
-    private CardSet(String newCardSetName) {
+    public CardSet(String newCardSetName) {
         cardSetName = newCardSetName;
         cards = new ArrayList<Card>();
     }
@@ -59,24 +59,24 @@ public class CardSet implements Serializable {
     }
 
 
-    private void setCardSetName(String newCardSetName) {
+    public void setCardSetName(String newCardSetName) {
         cardSetName = newCardSetName;
     }
 
-    private String getCardSetName() {
+    public String getCardSetName() {
         return  cardSetName;
     }
 
 
-    private void setCards(ArrayList<Card> cards) {
+    public void setCards(ArrayList<Card> cards) {
         this.cards = cards;
     }
 
-    private ArrayList<Card> getCards() {
+    public ArrayList<Card> getCards() {
         return cards;
     }
 
-    private void addCard(String newQuestion, String newAnswer) {
+    public void addCard(String newQuestion, String newAnswer) {
         Card newCard = new Card(newQuestion, newAnswer);
         cards.add(newCard);
     }
