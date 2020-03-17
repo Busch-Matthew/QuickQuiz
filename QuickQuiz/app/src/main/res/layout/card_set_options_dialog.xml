@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select an Option"
+        android:textSize="22sp"
+        android:textAlignment="center"
+        android:layout_gravity="center"/>
+
+
+
+        <Button
+            android:id="@+id/card_set_options_btn_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimary"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:text="Edit"/>
+
+        <Button
+            android:id="@+id/card_set_options_btn_delete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimary"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:text="Delete"/>
+
+        <Button
+            android:id="@+id/card_set_options_btn_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimary"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:text="Cancel" />
+
+</LinearLayout>

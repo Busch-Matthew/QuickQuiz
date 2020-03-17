@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">QuickQuiz</string>
+    <string name="flashcard_question_answer">Flashcard Question/Answer</string>
 </resources>

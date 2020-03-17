@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Edit Flashcard"
+        android:textSize="22sp"
+        android:textAlignment="center"
+        android:layout_gravity="center"/>
+
+    <EditText
+        android:id="@+id/edit_card_question_EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter a question"
+        android:textSize="22sp"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:id="@+id/edit_card_answer_EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter an answer"
+        android:textSize="22sp"
+        android:layout_marginTop="10dp"/>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+
+        <Button
+            android:id="@+id/edit_flashcard_btn_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimary"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:text="Cancel"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/edit_flashcard_btn_ok"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorAccent"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:text="OK"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+
+</LinearLayout>

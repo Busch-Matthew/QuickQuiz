@@ -4,19 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".FlashCards">
 
     <TextView
-        android:id="@+id/flashcard_sets_title"
+        android:id="@+id/flashcard_set_name_TextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
         android:gravity="center"
+        android:longClickable="true"
+        android:text="Flashcard Set Name"
+        android:textAlignment="center"
         android:textSize="30sp"
-        android:text="Flashcard Sets"/>
+        android:clickable="true"
+        />
 
     <Button
-        android:id="@+id/add_card_set_btn"
+        android:id="@+id/add_flashcard_btn"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:text="+"
@@ -27,15 +30,14 @@
         android:layout_alignParentRight="true"
         android:layout_marginBottom="45dp"
         android:layout_marginRight="45dp"
-        android:onClick="show_edit_card_set_dialog"/>
+        android:onClick="show_edit_flashcard_dialog"/>
 
     <ListView
-        android:id="@+id/card_set_ListView"
-        android:layout_below="@id/flashcard_sets_title"
+        android:id="@+id/flashcard_ListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="16dp"
-        android:longClickable="true"/>
+        android:layout_below="@id/flashcard_set_name_TextView"/>
 
 
 
