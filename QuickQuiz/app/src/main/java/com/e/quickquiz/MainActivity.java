@@ -1,13 +1,14 @@
 package com.e.quickquiz;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.multidex.MultiDex;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.nfc.Tag;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,19 +20,35 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.FirebaseOptions;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
-public class MainActivity extends AppCompatActivity {
+import io.opencensus.tags.Tag;
+
+public class MainActivity extends AppCompatActivity  {
 
     private Button addCardSetButton;
     ListView cardSetListView;
     ArrayList<CardSet> cardSetItems;
     ArrayAdapter<CardSet> cardSetItemsAdapter;
     int cardSetListPosition;
+    String username = "Test Admin";
+    String path = "users/" + username;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +59,10 @@ public class MainActivity extends AppCompatActivity {
         cardSetListView = (ListView) findViewById(R.id.card_set_ListView);
         cardSetItemsAdapter = new ArrayAdapter<CardSet>(MainActivity.this, android.R.layout.simple_list_item_1, cardSetItems);
         cardSetListView.setAdapter(cardSetItemsAdapter);
+
+
+
+
 
         cardSetListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
@@ -67,8 +88,29 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         Gson gson = new Gson();
         String json = gson.toJson(cardSetItems);
+        Log.d("JSON:", json);
+
         editor.putString("card set list", json);
         editor.apply();
+
+
+
+        Map<String, Object> set = new HashMap<>();
+        set.put("name", username);
+        set.put("data:", json);
+        db.collection("users").document(username).set(set)
+                .addOnCompleteListener(new OnCompleteListener<Void>(){
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task){
+                        if (task.isSuccessful()){
+                            Log.d("SUCCESS:","Safely Synced to Cloud");
+                        }
+                        else{
+                            Log.w("ERROR:","ErrorSyncing to Cloud");
+                        }
+                    }
+                });
+
     }
 
     private void Load_Data() {
